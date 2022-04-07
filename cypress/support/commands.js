@@ -23,3 +23,14 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+
+
+Cypress.Commands.add('search',(value) => {
+    cy.fixture('search.json').then((locators) => {
+        cy.get(locators.searchBox).type(value);
+        cy.get(locators.searchButton).click()
+    })
+    
+})
+

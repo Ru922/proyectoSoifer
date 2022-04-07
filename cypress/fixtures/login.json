@@ -1,0 +1,7 @@
+{
+    "singIn": ".login",
+    "eField": "#email",
+    "pField": "#passwd",
+    "submit": "#SubmitLogin > span",
+    "error": "#center_column > :nth-child(2) > p"
+}

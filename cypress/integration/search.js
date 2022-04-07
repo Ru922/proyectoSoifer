@@ -6,24 +6,17 @@ describe('Search elements', () => {
     })
 
     it('Search for elements with multiple results', () => {
-        cy.fixture('search.json').then((locators) => {
-            cy.get(locators.searchBox).type('dress');
-            cy.get(locators.searchButton).click()
-        })
-        
-        cy.fixture('results.json').then((result)=>{
+        cy.search('dress');
+            cy.fixture('results.json').then((result)=>{
             cy.get(result.title).should('contain','dress')
         })
     })
 
     it('Search with no results', () => {
-        cy.fixture('search.json').then((locators) => {
-            cy.get(locators.searchBox).type('qwerty');
-            cy.get(locators.searchButton).click()
-        })
+        cy.search('qwerty');
             cy.fixture('results.json').then((result)=>{
-            cy.get(result.alert).should('contain','No results were found for your search')
-        })
-    })
-
+            cy.get(result.alert).should('contain','No results were found for your search');
+        });
+    });
+;
 })
