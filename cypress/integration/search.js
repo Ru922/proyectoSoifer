@@ -16,6 +16,14 @@ describe('Search elements', () => {
         })
     })
 
-    it('')
+    it('Search with no results', () => {
+        cy.fixture('search.json').then((locators) => {
+            cy.get(locators.searchBox).type('qwerty');
+            cy.get(locators.searchButton).click()
+        })
+            cy.fixture('results.json').then((result)=>{
+            cy.get(result.alert).should('contain','No results were found for your search')
+        })
+    })
 
 })
